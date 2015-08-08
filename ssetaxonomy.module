@@ -1,0 +1,13 @@
+<?php
+
+function ssetaxonomy_entity_info_alter(&$entity_info) {
+  $entity_info['taxonomy_term']['bundles']['notice_target']['uri callback'] = 'ssetaxonomy_taxonomy_term_uri';
+  $entity_info['taxonomy_term']['bundles']['notice_category']['uri callback'] = 'ssetaxonomy_taxonomy_term_uri';
+}
+
+function ssetaxonomy_taxonomy_term_uri($term) {
+  $link = 'notice/filter/'.substr($term->vocabulary_machine_name, strlen('notice_')).'/'.$term->tid;
+  return array(
+    'path' => $link
+  );
+}

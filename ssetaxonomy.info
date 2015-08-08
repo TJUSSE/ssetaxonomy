@@ -1,0 +1,5 @@
+name = SSE Taxonomy
+description = Fix taxonomy links.
+core = 7.x
+dependencies[] = taxonomy
+package = SSE
